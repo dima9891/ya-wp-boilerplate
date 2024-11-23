@@ -77,7 +77,7 @@
       "cp -r vendor/htmlburger/carbon-fields/core/Libraries web/app/plugins/carbon-fields-plugin/core"
     ],
     "test": [
-      "phpcs"
+      "phpcs -d memory_limit=512M"
     ]
   }
 }
