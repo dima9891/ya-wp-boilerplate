@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:  S3 Custom Endpoint
  * Description:  Filter S3 Uploads params.
