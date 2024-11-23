@@ -1,0 +1,43 @@
+# Application
+web/app/plugins/*
+web/app/languages/*
+!web/app/plugins/.gitkeep
+web/app/mu-plugins/*/
+web/app/themes/twentytwentyfive/
+web/app/themes/bootscore/
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+web/app/cache/*
+web/app/object-cache.php
+
+
+# WordPress
+web/wp
+web/.htaccess
+
+# Logs
+*.log
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Composer
+/vendor
+composer.lock
+
+# WP-CLI
+wp-cli.local.yml
+
+#Cache plugin
+web/app/advanced-cache.php
+web/app/wp-cache-config.php
+
+#Mac OS
+.DS_Store
+
+#db_dump
+*.sql
+*.sql.zip
