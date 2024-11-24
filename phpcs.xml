@@ -14,6 +14,7 @@
   <exclude-pattern>web/app/themes/twentytwentyfive/</exclude-pattern>
   <exclude-pattern>web/app/themes/bootscore/</exclude-pattern>
   <exclude-pattern>web/app/plugins/</exclude-pattern>
+  <exclude-pattern>web/app/mu-plugins/bedrock-disallow-indexing/</exclude-pattern>
   
   <exclude-pattern>vendor/</exclude-pattern>
 
