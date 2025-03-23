@@ -1,15 +1,21 @@
-FROM webdevops/php-nginx:8.3-alpine
+FROM php:8.3-fpm-alpine
 
-# Install Xdebug
-RUN apk add --update linux-headers \
-    && apk add --no-cache $PHPIZE_DEPS \
-    && pecl install xdebug \
-    && docker-php-ext-enable xdebug \
-    && apk del $PHPIZE_DEPS
+COPY ./docker/php/php.ini "$PHP_INI_DIR/php.ini"
 
-# Copy Xdebug configuration
-COPY ./docker/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
-# Set the document root and working directory
-ENV WEB_DOCUMENT_ROOT=/app/web
-WORKDIR /app
+
+RUN install-php-extensions xdebug \
+    @composer \
+    mysqli \
+    && docker-php-ext-enable xdebug
+
+COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+WORKDIR /var/www/html
+
+COPY ./composer.json /var/www/html/composer.json
+RUN composer install --no-interaction
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
+
