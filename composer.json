@@ -73,6 +73,12 @@
   },
   "scripts": {
     "post-update-cmd": [
+      "@copy"
+    ],
+    "post-install-cmd": [
+      "@copy"
+    ],
+    "copy" : [
       "cp -r vendor/htmlburger/carbon-fields/build web/app/plugins/carbon-fields-plugin",
       "cp -r vendor/htmlburger/carbon-fields/core/Libraries web/app/plugins/carbon-fields-plugin/core"
     ],
