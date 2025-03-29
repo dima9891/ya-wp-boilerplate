@@ -13,6 +13,7 @@ RUN install-php-extensions xdebug \
     gd \
     intl \
     apcu \
+    opcache \
     && docker-php-ext-enable xdebug apcu
 
 COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
