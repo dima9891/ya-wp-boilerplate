@@ -8,6 +8,11 @@ ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/relea
 RUN install-php-extensions xdebug \
     @composer \
     mysqli \
+    exif \
+    imagick \
+    zip \
+    gd \
+    intl \
     && docker-php-ext-enable xdebug
 
 COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
